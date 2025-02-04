@@ -1,0 +1,40 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+
+\title{Homework 1 - Quantum Algorithms}
+\author{Son Nguyen}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Problem 1.1}
+For \(\bar{u}, \bar{v} \in \mathbb{C}^n\) show that the following holds:
+\[ \langle u, v \rangle = \frac{1}{4}(||u+v||^2 - ||u-v||^2 - i||u+iv||^2 + i||u-iv||^2)\]
+We have: 
+\begin{align*}
+    ||u+v||^2 &= \langle u+v, u+v \rangle = \langle u, u \rangle + \langle u, v \rangle + \langle v, u \rangle + \langle v, v \rangle \\
+    ||u-v||^2 &= \langle u-v, u-v \rangle = \langle u, u \rangle - \langle u, v \rangle - \langle v, u \rangle + \langle v, v \rangle \\
+    ||u+iv||^2 &= \langle u+iv, u+iv \rangle = \langle u, u \rangle + \langle u, iv \rangle + \langle iv, u \rangle + \langle iv, iv \rangle \\
+    ||u-iv||^2 &= \langle u-iv, u-iv \rangle = \langle u, u \rangle - \langle u, iv \rangle - \langle iv, u \rangle + \langle iv, iv \rangle
+\end{align*}
+Substitute these into the equation, we have right-hand side equal to:
+\begin{align*}
+    &= \frac{1}{4} \left[2\left(\langle u, v \rangle + \langle v, u\rangle\right) - 2i \left(\langle u, iv\rangle + \langle iv, u\rangle\right)\right] \\
+    &= \frac{1}{4} \left(2 \langle u, v \rangle + 2\langle v, u\rangle - 2\underbrace{i \cdot i}_{-1} \langle u, v\rangle - 2 \underbrace{i \cdot \bar{i}}_{1} \langle v, u\rangle\right) \\
+    &= \frac{1}{4} \left(2 \langle u, v \rangle + 2\langle v, u\rangle + 2 \langle u, v\rangle - 2 \langle v, u\rangle\right) \\
+    &= \frac{1}{4} \left(4 \langle u, v \rangle\right) = \langle u, v \rangle
+\end{align*}
+\section*{Problem 1.2}
+Let \(\bar{u} = (i, 1+i)^T\) and \(\bar{v} = (2, 1-i)^T\)
+\begin{enumerate}
+    \item Compute \(\langle \bar{u}, \bar{v} \rangle\)
+    \begin{align*}
+        \langle \bar{u}, \bar{v} \rangle &= \langle (i, 1+i)^T, (2, 1-i)^T \rangle \\
+    \end{align*}
+\end{enumerate}
+\end{document}
