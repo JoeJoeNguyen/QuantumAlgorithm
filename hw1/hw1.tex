@@ -33,8 +33,51 @@ Substitute these into the equation, we have right-hand side equal to:
 Let \(\bar{u} = (i, 1+i)^T\) and \(\bar{v} = (2, 1-i)^T\)
 \begin{enumerate}
     \item Compute \(\langle \bar{u}, \bar{v} \rangle\)
+    We have the vector:
+    \[\bar{u} = \begin{bmatrix}
+        i \\
+        1+i
+    \end{bmatrix},
+    \bar{v} = \begin{bmatrix}
+        2 \\
+        1-i
+    \end{bmatrix}
+    \]
     \begin{align*}
         \langle \bar{u}, \bar{v} \rangle &= \langle (i, 1+i)^T, (2, 1-i)^T \rangle \\
+        \bar{u}^\dagger \cdot \bar{v} &= 
+        \begin{bmatrix}
+            -i & 1-i    
+        \end{bmatrix}
+        \cdot 
+        \begin{bmatrix}
+            2 \\
+            1-i
+        \end{bmatrix}\\
+        &= -2i + 1^2 -2i + ii = -4i 
+    \end{align*}
+    \item Compute \(||\bar{u}||\)
+    \begin{align*}
+        ||\bar{u}|| &= \sqrt{\langle \bar{u}, \bar{u} \rangle} \\
+        &= \sqrt{\bar{u}^\dagger \cdot \bar{u}} \\
+        &= \sqrt{\begin{bmatrix}
+            -i & 1-i
+        \end{bmatrix}
+        \cdot
+        \begin{bmatrix}
+            i \\
+            1+i
+        \end{bmatrix}} \\
+        &= \sqrt{-i \cdot i + (1-i)(1+i)} \\
+        &= \sqrt{1 + 2} = \sqrt{3}
+    \end{align*}
+    \item Express \(\frac{1}{2-i}\) in the form \(a+bi\) with \(a, b \in \mathbb{R}\)
+    \begin{align*}
+        \frac{1}{2-i} &= \frac{1}{2-i} \cdot \frac{2+i}{2+i} \\
+        &= \frac{2+i}{5} = \frac{2}{5} + \frac{1}{5}i
     \end{align*}
 \end{enumerate}
+\section*{Problem 1.3}
+Prove that a composition of linear transformations \(\phi, \psi: V \rightarrow V\) is linear.
+
 \end{document}
