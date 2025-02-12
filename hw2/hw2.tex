@@ -1,0 +1,57 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+
+\title{Homework 2 - Quantum Algorithms}
+\author{Son Nguyen \\
+I pledge my honor that I have abided by the Stevens Honor System.}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\section*{Problem 1}
+\begin{itemize}
+    \item \(\overline{(AB)} = \overline{A} \; \overline{B}\) \\
+    Let \(A = \begin{bmatrix}
+        a_{11} & a_{12} \\
+        a_{21} & a_{22}
+    \end{bmatrix}\) and \(B = \begin{bmatrix}
+        b_{11} & b_{12} \\
+        b_{21} & b_{22}
+    \end{bmatrix}\). Then:
+    \[A \cdot B = \begin{bmatrix}
+        a_{11}b_{11} + a_{12}b_{21} & a_{11}b_{12} + a_{12}b_{22} \\
+        a_{21}b_{11} + a_{22}b_{21} & a_{21}b_{12} + a_{22}b_{22}
+    \end{bmatrix}\]
+    \begin{align*}
+        \overline{(AB)} &= \begin{bmatrix}
+            \overline{a_{11}b_{11} + a_{12}b_{21}} & \overline{a_{11}b_{12} + a_{12}b_{22}} \\
+            \overline{a_{21}b_{11} + a_{22}b_{21}} & \overline{a_{21}b_{12} + a_{22}b_{22}}
+        \end{bmatrix}
+    \end{align*}
+    For the right hand side:
+    \begin{align*}
+        \overline{A} \; \overline{B} &= \begin{bmatrix}
+            \overline{a_{11}} & \overline{a_{12}} \\
+            \overline{a_{21}} & \overline{a_{22}}
+        \end{bmatrix} \begin{bmatrix}
+            \overline{b_{11}} & \overline{b_{12}} \\
+            \overline{b_{21}} & \overline{b_{22}}
+        \end{bmatrix} \\
+        &= \begin{bmatrix}
+            \overline{a_{11}b_{11}} + \overline{a_{12}b_{21}} & \overline{a_{11}b_{12}} + \overline{a_{12}b_{22}} \\
+            \overline{a_{21}b_{11}} + \overline{a_{22}b_{21}} & \overline{a_{21}b_{12}} + \overline{a_{22}b_{22}}
+        \end{bmatrix}\\
+        &= \begin{bmatrix}
+            \overline{a_{11}b_{11} + a_{12}b_{21}} & \overline{a_{11}b_{12} + a_{12}b_{22}} \\
+            \overline{a_{21}b_{11} + a_{22}b_{21}} & \overline{a_{21}b_{12} + a_{22}b_{22}}
+        \end{bmatrix}
+    \end{align*}
+    Since complex conjugation is an isomorphism. 
+    \item \((AB)^T = B^T A^T\)
+    
+\end{itemize}
+\end{document}
