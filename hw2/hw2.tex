@@ -52,6 +52,48 @@ I pledge my honor that I have abided by the Stevens Honor System.}
     \end{align*}
     Since complex conjugation is an isomorphism. 
     \item \((AB)^T = B^T A^T\)
-    
+    \begin{align*}
+        (AB)^T &= \begin{bmatrix}
+            a_{11}b_{11} + a_{12}b_{21} & a_{11}b_{12} + a_{12}b_{22} \\
+            a_{21}b_{11} + a_{22}b_{21} & a_{21}b_{12} + a_{22}b_{22}
+        \end{bmatrix}^T \\
+        &= \begin{bmatrix}
+            a_{11}b_{11} + a_{12}b_{21} & a_{21}b_{11} + a_{22}b_{21} \\
+            a_{11}b_{12} + a_{12}b_{22} & a_{21}b_{12} + a_{22}b_{22}
+        \end{bmatrix} \\
+        &= \begin{bmatrix}
+            b_{11} & b_{21} \\
+            b_{12} & b_{22}
+        \end{bmatrix} \begin{bmatrix}
+            a_{11} & a_{21} \\
+            a_{12} & a_{22}
+        \end{bmatrix} \\
+        &= B^T A^T
+    \end{align*}
 \end{itemize}
+\section*{Problem 2}
+\[A = \begin{bmatrix}
+    \frac{1+i}{2} & \frac{1}{\sqrt{3}} & \frac{3+i}{2\sqrt{15}} \\
+    \frac{-1}{2} & \frac{1}{\sqrt{3}} & \frac{4 + 3i}{2\sqrt{15}} \\
+    \frac{1}{2} & \frac{-i}{\sqrt{3}} & \frac{5i}{2\sqrt{15}}
+\end{bmatrix}\]
+A is unitary if \(A^{\dagger}A = I\).
+\begin{align*}
+    A^{\dagger}A &= \begin{bmatrix}
+        \frac{1-i}{2} & \frac{-1}{2} & \frac{1}{2} \\
+        \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{3}} & \frac{i}{\sqrt{3}} \\
+        \frac{3-i}{2\sqrt{15}} & \frac{4-3i}{2\sqrt{15}} & \frac{-5i}{2\sqrt{15}}
+    \end{bmatrix} \begin{bmatrix}
+        \frac{1+i}{2} & \frac{1}{\sqrt{3}} & \frac{3+i}{2\sqrt{15}} \\
+        \frac{-1}{2} & \frac{1}{\sqrt{3}} & \frac{4 + 3i}{2\sqrt{15}} \\
+        \frac{1}{2} & \frac{-i}{\sqrt{3}} & \frac{5i}{2\sqrt{15}}
+    \end{bmatrix} \\
+    &=  \begin{bmatrix}
+        1 & \frac{-i}{\sqrt{3}} & 0 \\
+        \frac{i}{\sqrt{3}} & 1 & \frac{(1+2i)\sqrt{5}}{15} \\
+        0 & \frac{(1-2i)\sqrt{5}}{15} & 1
+    \end{bmatrix}\\
+    & \Rightarrow \text{A is not unitary}
+\end{align*}
+
 \end{document}
