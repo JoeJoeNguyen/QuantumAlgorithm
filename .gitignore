@@ -1,0 +1,11 @@
+# Ignore everything
+**
+
+# Allow all directories (but not their contents)
+!*/
+
+# Allow PDF files in any directory
+!**/*.pdf
+
+# Ensure the .gitignore file itself is not ignored
+!.gitignore
