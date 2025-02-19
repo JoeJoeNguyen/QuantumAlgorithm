@@ -6,6 +6,7 @@
 
 # Allow PDF files in any directory
 !**/*.pdf
+!**/*.tex
 
 # Ensure the .gitignore file itself is not ignored
 !.gitignore

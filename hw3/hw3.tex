@@ -1,0 +1,67 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+
+\title{Homework 3 - Quantum Algorithms}
+\author{Son Nguyen \\
+I pledge my honor that I have abided by the Stevens Honor System.}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\section{Problem 1}
+\begin{itemize}
+    \item It is deterministic turing machine because there is only one possible output for each input.
+    \item 
+    \begin{itemize}
+        \item For \(\epsilon\) The machine starts with \(\_\), then it moves to \(q_1\), write 0 and moving left. Since \(q_1\) is the final state. The machine halts.
+        \item For '000'
+        \begin{align*}
+            & \_\underbrace{0}_{q_0}00 \_ \\
+            & \underbrace{\_}_{q_0} 000 \_ \\
+            &  \underbrace{\_}_{q_1} 0000\_
+        \end{align*}
+        The machine halts.
+        \item For '001'
+        \begin{align*}
+            &\_ \underbrace{0}_{q_0}01 \_ \\
+            & \underbrace{\_}_{q_0} 001 \_ \\
+            &  \underbrace{\_}_{q_1} 0001\_
+        \end{align*}
+        The machine halts.
+        \item For '111'
+        \begin{align*}
+            &\_ \underbrace{1}_{q_0}11 \_ \\
+            & \_ 1 \underbrace{1}_{q_0} 1\_ \\
+            & \_ 11\underbrace{1}_{q_0} \_ \\
+            & \_ 111\underbrace{\_}_{q_0} \\
+            & \_11\underbrace{1}_{q_1}0 \_ 
+        \end{align*}
+        The machine halts.
+        \item For '101'
+        \begin{align*}
+            &\_ \underbrace{1}_{q_0}01 \_ \\
+            & \_ 1 \underbrace{0}_{q_0} 1\_ \\
+            & \_ \underbrace{1}_{q_0}01 \_ \\
+            & \_ 1 \underbrace{0}_{q_0} 1\_ \\
+            & \dots
+        \end{align*}
+        The machines does not halt. 
+    \end{itemize}
+    \item The machine halts on inputs that does not starts with 1s and have 0s. Example:\\
+    Set that accepted by the machine: \{010, 01010, \dots \} \\
+    Set that rejected by the machine: \{1110, 1010, 1011, \dots \}
+\end{itemize}
+\section*{Problem 2}
+\begin{itemize}
+    \item The machine halts on all inputs. \(\Sigma = \{0,1\}\)
+    \item If the length of the input is not modulo 3, the machine will adds 0 to the rightmost of the input else it will add 1 to the rightmost of the input and halts.
+    From the transition functions, we can see that the machine will move left to right from state \(q_0 \rightarrow q_1 \rightarrow q_2 \rightarrow q_0\rightarrow \dots\) without changing the input string. If it reaches the end (blank) at state 
+    \(q_0\), it will add 1 to the rightmost of the input and halts, else if it's state \(q_1\) or \(q_2\), it will add 0 to the rightmost of the input and halts.
+    \\ \\
+    For the string \(w\). If \(|w| \; \text{mod} \; 3 = 0\) then the machine will add 1 to the rightmost of the input and halts. If \(|w| \; \text{mod} \; 3 \neq 0\) then the machine will add 0 to the rightmost of the input and halts. 
+\end{itemize}
+\end{document}
