@@ -1,0 +1,76 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{braket}
+\geometry{a4paper, margin=1in}
+
+\title{Homework 8 - Quantum Algorithms}
+\author{Son Nguyen \\
+I pledge my honor that I have abided by the Stevens Honor System.}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\section*{Problem 1}
+\indent For the first circuit,  let state \(\ket{\psi} = \alpha \ket{0} + \beta \ket{1} \). After measurment, the state collapse to either \(p(\ket{0}) = |\alpha|^2\)
+or \(p(\ket{1}) = |\beta|^2\). Applying U after the measurment give us either: \(p(U\ket{0}) = |\alpha|^2\) or \(p(U\ket{1}) = |\beta|^2\).
+\\
+\\
+For the second circuit, we have \(\ket{\psi} =(\alpha \ket{0} + \beta \ket{1})  \otimes \ket{0}\). Applying \(\text{CNOT}_{01}\) give us:
+\begin{align*}
+    \text{CNOT}_{01}[(\alpha \ket{0} + \beta \ket{1}) \otimes \ket{0}] &= \text{CNOT}_{01} (\alpha \ket{00} + \beta \ket{10}) \\
+    &= \alpha \ket{00} + \beta \ket{11}
+\end{align*}
+CNOT gate creates a second identical state on the second second qubit. Now we applying unitary \(U\) to the first qubit give us.
+\begin{align*}
+    (U \otimes I) (\alpha \ket{00} + \beta \ket{11}) &= \alpha(U \ket{0} \otimes \ket{0}) + \beta(U \ket{1} \otimes \ket{1})
+\end{align*}
+Now measuring the second qubit. If the second qubit is measured to be \(\ket{0}\), the state of the first qubit is \(U\ket{0}\) with probability \(|\alpha|^2\). If the second qubit is measured to be \(\ket{1}\), the state of the first qubit is \(U\ket{1}\) with probability \(|\beta|^2\).
+\section*{Problem 2}
+
+In the first circuit, after the measurment, we have state \(\ket{0}\). Applying \(U\) give us \(U\ket{0}\).
+\\
+For the second circuit, starting with state \(\ket{\psi} = \alpha \ket{0} + \beta \ket{1}\). Measurment will result in either \(\ket{0}\) or \(\ket{1}\). Applying SWAP gate to the state \(\ket{0}\) give us:
+\begin{align*}
+    \text{SWAP}(\ket{0} \otimes \ket{0}) &= \ket{0} \otimes \ket{0} \\
+    &= \ket{0} \otimes \ket{0} = |00\rangle \\
+    \text{SWAP}(\ket{0} \otimes \ket{1}) &= \ket{1} \otimes \ket{0} \\
+    &= \ket{0} \otimes \ket{1} = |01\rangle
+ \end{align*}
+ Now applying \(U\) to the first qubit gives us: 
+    \begin{align*}
+        (U \otimes I) \ket{0} \otimes \ket{0} &= U\ket{0} \otimes \ket{0} \\
+        (U \otimes I) \ket{0} \otimes \ket{1} &= U\ket{0} \otimes \ket{1}
+    \end{align*}
+No matter the coeficient \(\alpha\) and \(\beta\), we always have \(U\ket{0}\) as the state of the first qubit.
+\section*{Problem 3}
+For the first circuit: \\
+Starting with \(\ket{\psi} = \alpha \ket{0} + \beta \ket{0}\) state, and \(\ket{\phi}\) state, after measurment on \(\ket{\psi}\) we have:
+\begin{align*}
+    p(\ket{0}) &= |\alpha|^2 \\
+    p(\ket{1}) &= |\beta|^2
+\end{align*}
+Applying Control-\(U_{\psi,\phi}\) 
+\begin{align*}
+    &p(CU_{\psi,\theta}(\ket{0} \otimes \ket{\phi}) = \ket{0} \otimes \ket{\phi}) = |\alpha|^2 \\
+    &p(CU_{\psi,\theta}(\ket{1} \otimes \ket{\phi}) = \ket{1} \otimes U\ket{\phi}) = |\beta|^2
+\end{align*}
+\\
+For the second circuit: \\
+\begin{align*}
+    \ket{\psi} \otimes \ket{\phi} &= (\alpha \ket{0} + \beta \ket{1}) \otimes \ket{\phi} \\ 
+    &= \alpha (\ket{0} \otimes \ket{\phi}) + \beta (\ket{1} \otimes \ket{\phi})
+\end{align*}
+Applying Control-\(U_{\psi,\phi}\):
+\begin{align*}
+    &CU_{\psi,\phi}[\alpha (\ket{0} \otimes \ket{\phi}) + \beta (\ket{1} \otimes \ket{\phi})]\\
+    &= \alpha (\ket{0} \otimes \ket{\phi}) + \beta (\ket{1} \otimes U\ket{\phi})
+\end{align*}
+After measurment: 
+\begin{align*}
+    &p(\ket{0} \otimes \ket{\phi}) = |\alpha|^2 \\
+    &p(\ket{1} \otimes U\ket{\phi}) = |\beta|^2
+\end{align*}
+\end{document}
